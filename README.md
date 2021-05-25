@@ -1,4 +1,4 @@
-# AtcoderのABC問題のリポジトリです
+# AtcoderのABC問題のリポジトリ
 
 ## グラフ問題の入力の受け方
 N, M = map(int, input().split())  
