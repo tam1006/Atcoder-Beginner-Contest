@@ -6,3 +6,4 @@ elif X <= B:
     print(C/(B-A))
 else:
     print(0)
+
