@@ -1,3 +1,5 @@
+# zsh problems.sh ABC 240
+
 CURRENT=$(cd $(dirname $0);pwd)
 dir=problems/$1/$2
 

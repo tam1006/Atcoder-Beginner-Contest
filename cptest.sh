@@ -13,3 +13,5 @@ if [ ! -e ${test_dir} ]; then
 fi
 
 oj test -c "python3 $2" -d test/${problem_name}
+
+# rm -rf test/${problem_name}
