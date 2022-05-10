@@ -1,3 +1,5 @@
+# shift+cmd+b
+
 #!/bin/bash
 source ~/.zshrc
 

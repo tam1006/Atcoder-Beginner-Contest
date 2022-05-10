@@ -16,7 +16,17 @@ fi
 
 mkdir ${dir}
 
-for i in a b c d e f g ex
+if [ $2 -le 125 ]; then
+    fileary=(a b c d)
+elif [ $2 -le 211 ]; then
+    fileary=(a b c d e f)
+elif [ $2 -le 232 ]; then
+    fileary=(a b c d e f g h)
+else
+    fileary=(a b c d e f g ex)
+fi
+
+for i in ${fileary[@]}
 do
 touch ${dir}/${KIND}_$i.py
 done
