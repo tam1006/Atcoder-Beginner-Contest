@@ -26,6 +26,9 @@ elif [ $1 = AGC ]; then
     else
         fileary=(a b c d e f)
     fi
+elif [ $1 = Other ]; then
+    KIND=$2
+    fileary=(a b c d e f)
 else
     echo "Error: $1"
     exit 1
@@ -33,9 +36,14 @@ fi
 
 mkdir ${dir}
 
-
-
-for i in ${fileary[@]}
-do
-touch ${dir}/${KIND}_$i.py
-done
+if [ $1 = Other]; then
+    for i in ${fileary[@]}
+    do
+    touch ${dir}/${KIND}_$i.py
+    done
+else
+    for i in ${fileary[@]}
+    do
+    touch ${dir}/${KIND}_$i.py
+    done
+fi
