@@ -36,14 +36,7 @@ fi
 
 mkdir ${dir}
 
-if [ $1 = Other]; then
-    for i in ${fileary[@]}
-    do
-    touch ${dir}/${KIND}_$i.py
-    done
-else
-    for i in ${fileary[@]}
-    do
-    touch ${dir}/${KIND}_$i.py
-    done
-fi
+for i in ${fileary[@]}
+do
+touch ${dir}/${KIND}_$i.py
+done
