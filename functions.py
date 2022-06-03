@@ -109,6 +109,16 @@ def nCr(n, r):
     return math.factorial(n) // (math.factorial(n-r) * math.factorial(r))
 
 
+def iter_p_adic(p, n):
+    '''
+    連続して増加するp進数をリストとして返す。nはリストの長さ
+    return
+    ----------
+    所望のp進数リストを次々返してくれるiterator
+    '''
+    from itertools import product
+    tmp = [range(p)] * n
+    return product(*tmp)
 
 
 if __name__ == '__main__':
