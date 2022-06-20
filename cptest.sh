@@ -1,8 +1,8 @@
-# shift+cmd+b
-
+# shift+cmd+b 
 #!/bin/bash
 source ~/.zshrc
 
+# pyenv shell 3.9.11
 pyenv shell ABC
 
 problem_name=$1
