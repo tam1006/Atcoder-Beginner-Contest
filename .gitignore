@@ -1,5 +1,6 @@
 .DS_Store
-test
+.vscode
+.python-version
 athretics
 team-lab
 LINE
