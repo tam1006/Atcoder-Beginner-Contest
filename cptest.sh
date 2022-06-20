@@ -3,7 +3,7 @@
 #!/bin/bash
 source ~/.zshrc
 
-pyenv shell 3.9.1
+pyenv shell ABC
 
 problem_name=$1
 test_dir=test/${problem_name}
