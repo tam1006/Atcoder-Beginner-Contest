@@ -1,24 +1,24 @@
 N = int(input())
 S  = list(input() for _ in range(N))
 
-maze = [[True]*N for _ in range(N)]
-
-def dfs(i, j, count=0):
-    dx = [0, 0, 1, -1]
-    dy = [1, -1, 0, 0]
-    for k in range(4):
-        x = i + dx[k]
-        y = j + dy[k]
-        if not maze[x][y]:
-            continue
-
-        if 0 <= x < N and 0 <= y < N and S[x][y]:
-            dfs(x, y, count+1)
-
 for i in range(N):
     for j in range(N):
-        if maze[i][j]:
-            if S[i][j] == '.':
-                maze[i][j] = False
-                continue
+        tate = []
+        yoko = []
+        naname1 = []
+        naname2 = []
+        for k in range(6):
+            if i+k < N:
+                tate.append(S[i+k][j])
+            if j+k < N:
+                yoko.append(S[i][j+k])
+            if i+k < N and j+k < N:
+                naname1.append(S[i+k][j+k])
+            if i+k < N and -j-k-1 >= 0:
+                naname2.append(S[i+k][-j-k-1])
+        
+        if tate.count('#') >= 4 or yoko.count('#') >= 4 or naname1.count('#') >= 4 or naname2.count('#') >= 4:
+            print('Yes')
+            exit()
 
+print('No')
