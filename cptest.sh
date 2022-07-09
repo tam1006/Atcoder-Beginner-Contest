@@ -11,6 +11,7 @@ base_url=${problem_name%_*}
 
 echo $problem_name
 echo $base_url
+echo $2
 
 # make test directory
 if [ ! -e ${test_dir} ]; then

@@ -1,1 +1,0 @@
-/Users/syunya/dotfiles/scripts/problems.sh
