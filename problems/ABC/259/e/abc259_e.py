@@ -1,3 +1,4 @@
+import onlinejudge_random
 N = int(input())
 
 from collections import defaultdict
