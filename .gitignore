@@ -2,7 +2,7 @@
 .vscode
 .python-version
 test
-generate
+generate.py
 athretics
 team-lab
 LINE
