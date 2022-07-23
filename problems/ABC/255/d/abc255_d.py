@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # from typing import *
+from bisect import bisect
 
 MOD = 998244353
 
@@ -13,31 +14,8 @@ def solve(N, Q, A, X):
         Cum_sum[i + 1] = Cum_sum[i] + A[i]
 
     for i in range(Q):
-        left = 0
-        right = N-1
-        print(A, X[i])
-        while True:
-            mid = (left + right) // 2
-            print(left, right, mid)
-            input()
-
-            if right == left:
-                if right == 0:
-                    k = 0
-                    break
-                elif right == N-1:
-                    k = N-1
-                    break
-            elif A[mid] <= X[i] <= A[mid+1]:
-                k = mid
-                break
-
-            if X[i] < A[mid]:
-                right = mid - 1
-            else:
-                left = mid + 1
-
-        ans[i] = k*X[i] - Cum_sum[k] - (N-k)*X[i] + (Cum_sum[N] - Cum_sum[k])
+        k = bisect(A, X[i])
+        ans[i] = k*X[i] - 2*Cum_sum[k] - (N - k)*X[i] + Cum_sum[-1]
 
     return ans
 
