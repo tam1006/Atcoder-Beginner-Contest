@@ -1,7 +1,7 @@
 .DS_Store
 .vscode
 .python-version
-test
+**test
 generate.py
 athretics
 team-lab
