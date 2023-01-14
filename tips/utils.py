@@ -20,3 +20,19 @@ def powmat(M, k):
         M = dot(M, M) # Mの(2のi乗)の乗 を計算する
         k >>= 1
     return Mc
+
+# limit 以下の全ての素数を返す: エラトステネスの篩
+def list_primes(limit):
+    primes = []
+    is_prime = [True] * (limit + 1)
+    is_prime[0] = False
+    is_prime[1] = False
+
+    for p in range (0, limit + 1):
+        if not is_prime[p]:
+            continue
+        primes.append(p)
+        for i in range(p*p, limit + 1, p):
+            is_prime[i] = False
+
+    return primes
