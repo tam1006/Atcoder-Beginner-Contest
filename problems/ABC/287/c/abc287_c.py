@@ -58,10 +58,6 @@ def solve(N, M, u, v):
 
         s_before = s
 
-    for i in range(N):
-        if not visited[i]:
-            return NO
-
     return YES
 
 
