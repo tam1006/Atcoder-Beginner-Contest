@@ -49,3 +49,37 @@ class UnionFind():
 
     def __str__(self):
         return '\n'.join(f'{r}: {m}' for r, m in self.all_group_members().items())
+
+
+class UnionFind():
+    def __init__(self, N):
+        self.N = N
+        # 0-indexed
+        self.parents = [i for i in range(N)]
+        self.rank = [0] * N
+
+    def find(self, x):
+        if self.parents[x] == x:
+            return x
+        else:
+            self.parents[x] = self.find(self.parents[x])
+            return self.parents[x]
+
+    def unite(self, x, y):
+        x = self.find(x)
+        y = self.find(y)
+
+        if x == y:
+            return
+
+        if self.rank[x] < self.rank[y]:
+            self.parents[x] = y
+        else:
+            self.parents[y] = x
+            if self.rank[x] == self.rank[y]:
+                self.rank[x] += 1
+
+    def same(self, x, y):
+        return self.find(x) == self.find(y)
+
+
