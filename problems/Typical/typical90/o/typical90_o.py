@@ -20,7 +20,6 @@ for i in range(2, N + 1):
 
 for k in range(1, N+1):
     ans = 0
-    # for a in range(1, (N+k-1)//k):
     for a in range(1, N+1):
         if N - (k-1)*(a-1) < a:
             break
