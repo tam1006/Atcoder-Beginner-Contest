@@ -1,0 +1,18 @@
+# a,bの最大公約数
+def gcd(a, b):
+    if b == 0:
+        return a
+    else:
+        return gcd(b, a % b)
+
+# a,bの最小公倍数
+def lcm(a, b):
+    return a * b // gcd (a, b)
+
+A, B = map(int, input().split())
+
+l = lcm(A, B)
+if l > pow(10, 18):
+    print("Large")
+else:
+    print(l)
