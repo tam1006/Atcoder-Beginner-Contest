@@ -1,3 +1,6 @@
+# 最小全域木（クラスカル法）
+# O(|E|log|V|)
+
 from collections import defaultdict
 
 class UnionFind():
@@ -50,34 +53,50 @@ class UnionFind():
     def __str__(self):
         return '\n'.join(f'{r}: {m}' for r, m in self.all_group_members().items())
 
-N, M = map(int, input().split())
-C, L, R = [], [], []
-for _ in range(M):
-    c, l, r = map(int, input().split())
-    C.append(c)
-    L.append(l)
-    R.append(r)
+class Kruskal:
+    def __init__(self, N: int):
+        self.N = N
+        self.edges = []
 
-uf = UnionFind(N+1)
+    # u: from, v: to
+    def add_edge(self, u: int, v: int, cost: int):
+        assert 0 <= u < self.N
+        assert 0 <= v < self.N
 
-C, L, R = zip(*sorted(zip(C, L, R)))
+        self.edges.append((cost, u, v))
 
-ans = 0
-members = 0
+    def min_cost(self):
+        self.edges.sort(key=lambda x: x[0])
 
-for i in range(M):
-    c, l, r = C[i], L[i], R[i]
+        uf = UnionFind(self.N)
 
-    if uf.same(l-1, r):
-        continue
+        res = 0
+        for cost, u, v in self.edges:
+            if not uf.same(u, v):
+                uf.union(u, v)
+                res += cost
 
-    members += 1
-    ans += c
-    uf.union(l-1, r)
-    if members == N:
-        break
+        return res
 
-if members == N:
-    print(ans)
-else:
-    print(-1)
+
+
+# https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_12_A
+N = int(input())
+A = list(list(map(int, input().split())) for _ in range(N))
+
+k = Kruskal(N)
+for i in range(N):
+    for j in range(N):
+        if A[i][j] != -1:
+            k.add_edge(i, j, A[i][j])
+
+ans = k.min_cost()
+print(ans)
+
+
+
+
+
+
+
+
